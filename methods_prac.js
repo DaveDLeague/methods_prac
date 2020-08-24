@@ -6,6 +6,10 @@ const DATA_TYPES = [
     "void", "boolean", "int", "long", "byte", "char", "float", "short", "double", "Object", "String", "Robot", "Random"
 ];
 
+const ACCESS_MODIFIERS = [
+    "", "public", "private", "protected"
+];
+
 var currentQuestionType;
 var currentReturnType;
 var currentMethodName;
@@ -52,7 +56,9 @@ function generateRandomMethodString(){
         }
     }
 
-    let ms = currentReturnType + " " + currentMethodName + "(" + params + "){<br>";
+    let accMod = getRandomEntryFromArray(ACCESS_MODIFIERS);
+
+    let ms = accMod + " " + currentReturnType + " " + currentMethodName + "(" + params + "){<br>";
     ms += "&nbsp&nbsp&nbsp&nbsp//pretend that all the necessarry code is here<br>}";
     return ms;
 }
@@ -89,8 +95,6 @@ function checkAnswer(){
     document.body.innerHTML += ans + "<br><br>";
     document.body.innerHTML += "Correct Answer:<br>";
     document.body.innerHTML += correctAnswer + "<br>";
-
-    
 
     inptBt = document.getElementById("buttonID");
     inptBt.innerHTML = "Click Here to Continue";
