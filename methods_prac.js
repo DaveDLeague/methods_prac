@@ -84,7 +84,7 @@ function checkAnswer(){
         }
     }
 
-    if(ans == correctAnswer){
+    if(ans.trim() == correctAnswer){
         document.body.style.backgroundColor = "#a0ffa0";
     }else{
         document.body.style.backgroundColor = "#ffa0a0";
