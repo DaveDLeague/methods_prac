@@ -16,6 +16,7 @@ var currentMethodName;
 var currentParamCount;
 var inputBox;
 var inputButton;
+var winningStreak = 0;
 
 window.onload = function(){
     window.addEventListener("keydown", function(event){
@@ -86,8 +87,10 @@ function checkAnswer(){
 
     if(ans.trim() == correctAnswer){
         document.body.style.backgroundColor = "#a0ffa0";
+        winningStreak += 1;
     }else{
         document.body.style.backgroundColor = "#ffa0a0";
+        winningStreak = 0;
     }
 
     document.body.innerHTML += "<br><br><br>";
@@ -128,6 +131,7 @@ function loadNewQuestion(){
         }
     }
     qText += "<br><br><br>" + generateRandomMethodString();
+    qText += "<br><br>Winning Streak: " + winningStreak;
 
     document.body.innerHTML = qText;
     document.body.innerHTML += "<br><br><br>"
